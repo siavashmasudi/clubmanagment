@@ -31,7 +31,8 @@
                     </ul>					
                 </div>
                 <div class="copyright col-md-6 ">
-                    <p>Copyright © Your company  2015</p>
+                    <p>Copyright © <?php get_bloginfo("url");?> <?php $blog_title = get_bloginfo('name');
+                    echo $blog_title;?> 2015</p>
                 </div>
             </div>
         </div><!-- .site-info -->
