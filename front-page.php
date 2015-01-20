@@ -7,48 +7,63 @@
  *
  * 
  */
+get_header();
+?>
 
- get_header(); ?>
 
-<!-- Header Carousel -->
-<header id="myCarousel" class="carousel slide">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+<!-- Page Content -->
+<div class="container main-content-area">
+    <div class="row carousel_wraper">
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 1</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 2</h2>
-            </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-            <div class="carousel-caption">
-                <h2>Caption 3</h2>
-            </div>
+        <div class="col-md-12">
+             <?php
+                    $numbers = 0;
+                    $the_query = new WP_Query(array(
+                        'post_type' => 'slider',
+                        'posts_per_page' => 5
+                    ));
+                    
+                    if ($the_query->have_posts())
+                    {
+                    ?>
+            
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                 
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <?php
+                    while ($the_query->have_posts()) : $the_query->the_post();
+                        ?>
+                        <div class="item">
+                            <?php the_post_thumbnail('MainSlider-image',(array('class' => 'img-responsive' ))); ?>
+                            <div class="carousel-caption">
+                                <h4><?php the_title(); ?></h4>
+                                <p><?php the_excerpt(); ?></p>
+                            </div>
+                        </div><!-- item active -->
+                        <?php
+                    endwhile;
+                    wp_reset_postdata();
+                    ?>
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div> <!-- Carousel -->
+                    <?php }?>
         </div>
     </div>
 
-</header>	
-<!-- Page Content -->
-<div class="container main-content-area">
-
-    <!-- Marketing Icons Section -->
     <div class="row" >
 
         <div class="col-md-8 col-sm-12 pull-left-md" style="background-color: #FFF;">
+
             <div class="col-md-12">
                 <header class="entry-header page-header">
 
@@ -66,7 +81,7 @@
                     while (have_posts()) : the_post();
                         ?>
                         <li>
-                            
+
                             <span class="posted-on">
                                 <i class="fa fa-calendar">
 
@@ -81,9 +96,9 @@
 
                     // Reset Query
                     wp_reset_query();
-    ?>
+                    ?>
                 </ul>
-               
+
             </div>
             <div class="col-md-12">
                 <header class="entry-header page-header">

@@ -26,13 +26,15 @@
                         <li ><a href="#" >Home</a></li>
                         <li ><a href="#" >Team</a></li>
                         <li ><a href="#" >Contact</a></li>
-                         <li ><a href="#" >Blog</a></li>
+                        <li ><a href="#" >Blog</a></li>
 
                     </ul>					
                 </div>
                 <div class="copyright col-md-6 ">
-                    <p>Copyright © <?php get_bloginfo("url");?> <?php $blog_title = get_bloginfo('name');
-                    echo $blog_title;?> 2015</p>
+                    <p>Copyright © <?php get_bloginfo("url"); ?> <?php
+                        $blog_title = get_bloginfo('name');
+                        echo $blog_title;
+                        ?> 2015</p>
                 </div>
             </div>
         </div><!-- .site-info -->
@@ -50,9 +52,14 @@
 
 <!-- Script to Activate the Carousel -->
 <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
+    $(function () {
+        $('.carousel').carousel({
+            interval: false //changes the speed
+        })
+        $('.carousel-inner').find('.item:first').addClass('active');
+
+    });
+
 </script>
 <?php wp_footer(); ?>
 
