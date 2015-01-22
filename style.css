@@ -5,6 +5,10 @@ body{
     font-family: 'Open Sans', sans-serif;
     line-height: 1.7;
     font-size: 14px;
+    background-image: url(images/bg1.jpg) !important;
+    background-repeat: repeat-y !important;
+    background-position: center top !important;
+    background-attachment: fixed !important;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: black;
@@ -43,7 +47,8 @@ a:hover{
 .main-content-area {
     margin-top: 40px;
     margin-bottom: 40px;
-    background-color: #FFF;
+    //background-color: #FFF;
+    max-width: 960px;
 
 }
 .well{
@@ -137,7 +142,7 @@ footer{
     color: black;
     font-family: 'Roboto Slab', serif;
     font-size: 18px;
-    
+
 }
 .news-title:hover{
     color: orange!important;
@@ -149,7 +154,7 @@ footer{
     background-color: rgb(223, 223, 223);
     padding: 6px;
     margin-top: 2px;
-    
+
 }
 
 a:hover{
@@ -162,8 +167,51 @@ a:hover{
 .carousel_wraper{
     margin-top: 10px;
     margin-bottom: 10px;
+
+}
+.section{
+    background-color: #FFF;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-bottom: 40px;
 }
 .carousel-inner > .item > img {
     min-height: 500px!important;
-    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+
+.carousel-indicators {
+    bottom: 0;
+    left: 10px;
+    margin-left: 5px;
+    width: 100%;
+}
+
+.carousel-indicators li {
+    border: medium none;
+    border-radius: 0;
+    float: left;
+    height: 44px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    margin-right: 5px !important;
+    margin-top: 0;
+    width: 120px;
+}
+
+ .carousel-indicators img {
+    border: 2px solid #FFFFFF;
+    float: left;
+    height: 44px;
+    left: 0;
+    width: 120px;
+}
+
+.carousel-indicators .active img {
+    border: 2px solid #39b3d7;
+
 }

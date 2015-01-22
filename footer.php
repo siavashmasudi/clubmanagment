@@ -57,6 +57,7 @@
             interval: false //changes the speed
         })
         $('.carousel-inner').find('.item:first').addClass('active');
+        $(".carousel-indicators li:first").addClass("active");
 
     });
 

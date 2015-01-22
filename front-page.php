@@ -13,56 +13,61 @@ get_header();
 
 <!-- Page Content -->
 <div class="container main-content-area">
-    <div class="row carousel_wraper">
+    <div class="row carousel_wraper section">
 
         <div class="col-md-12">
-             <?php
-                    $numbers = 0;
-                    $the_query = new WP_Query(array(
-                        'post_type' => 'slider',
-                        'posts_per_page' => 5
-                    ));
-                    
-                    if ($the_query->have_posts())
-                    {
-                    ?>
+            <?php
             
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner">
-                  <?php
-                    while ($the_query->have_posts()) : $the_query->the_post();
-                        ?>
-                        <div class="item">
-                            <?php the_post_thumbnail('MainSlider-image',(array('class' => 'img-responsive' ))); ?>
-                            <div class="carousel-caption">
-                                <h4><?php the_title(); ?></h4>
-                                <p><?php the_excerpt(); ?></p>
-                            </div>
-                        </div><!-- item active -->
+            
+            $the_query = new WP_Query(array(
+                'post_type' => 'slider',
+                'posts_per_page' => 5
+            ));
+            
+            
+            //print_r($counts->publish);
+            if ($the_query->have_posts()): 
+                
+            
+                ?>
+
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
                         <?php
-                    endwhile;
-                    wp_reset_postdata();
-                    ?>
+                        while ($the_query->have_posts()) : $the_query->the_post();
+                            ?>
+                            <div class="item" >
+                                <?php the_post_thumbnail('MainSlider-image'); ?>
+                                <div class="carousel-caption">
+                                    <h4><?php the_title(); ?></h4>
+                                    <p><?php the_excerpt(); ?></p>
+                                </div>
+                            </div><!-- item active -->
+                            <?php
+                        endwhile;
+                         wp_reset_postdata();
+                        ?>
 
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
-            </div> <!-- Carousel -->
-                    <?php }?>
+                    </div>
+                    
+                              
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div> <!-- Carousel -->
+            <?php  endif;?>
         </div>
     </div>
 
-    <div class="row" >
+    <div class="row section" >
 
-        <div class="col-md-8 col-sm-12 pull-left-md" style="background-color: #FFF;">
+        <div class="col-md-8 col-sm-12 pull-left-md" >
 
             <div class="col-md-12">
                 <header class="entry-header page-header">
@@ -159,7 +164,7 @@ get_header();
     </div>
     <!-- /.row -->
 </div>
-<hr>
+
 
 <?php get_footer(); ?>
 
