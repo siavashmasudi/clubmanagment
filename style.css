@@ -215,3 +215,64 @@ a:hover{
     border: 2px solid #39b3d7;
 
 }
+.controlsBlock {
+position: relative;
+bottom: 0;
+left: 0;
+top: 10px;
+display: block;
+width: 177px;
+margin: 0 auto;
+z-index: 1;
+height: 24px;
+text-align: center;
+}
+
+
+.carousel-control {
+  	position: absolute;
+  	
+  	bottom: 0;
+  	left: 0;
+  	background: #000000;
+  	font-size: 5px!important;
+  	background: none !important;
+  	color: #000 !important;
+  	text-align: center;
+}
+
+
+.carousel-control.left {
+  	left: 15;
+}
+
+.carousel-control.right {
+  	right: 15;
+  	
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+  	color: #000;
+}
+
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  	position: absolute;
+  	z-index: 5;
+  	display: inline-block;
+}
+
+.carousel-control .glyphicon-chevron-left {
+  	left: 0;
+}
+
+.carousel-control .glyphicon-chevron-right {
+  	right: 0;
+}
+
+.gameresult td, .gameresult th{
+    border: 1px solid;
+    padding: 5px;
+    margin: 5px;
+}

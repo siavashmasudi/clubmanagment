@@ -44,7 +44,7 @@ get_header();
                                     <h4><?php the_title(); ?></h4>
                                     <p><?php the_excerpt(); ?></p>
                                 </div>
-                            </div><!-- item active -->
+                            </div><!-- item -->
                             <?php
                         endwhile;
                          wp_reset_postdata();
@@ -52,14 +52,17 @@ get_header();
 
                     </div>
                     
-                              
+     
                     <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
+                    
+                        
+                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                   
                 </div> <!-- Carousel -->
             <?php  endif;?>
         </div>
@@ -109,8 +112,37 @@ get_header();
                 <header class="entry-header page-header">
 
                     <h2 class="entry-title">Latest games</h2>
-
-
+                    <?php $mypost = array( 'post_type' => 'results');
+                          $loop = new WP_Query( $mypost );
+                          ?>
+                         
+                    <?php
+                        echo '<table class="gameresult">';
+                         echo '<tr>';
+                            echo '<th>Match</th>';
+                            echo '<th>Result</th>';
+                            echo '<th>Date</th>';
+                            echo '</tr>';
+                          while ( $loop->have_posts() ) : $loop->the_post();
+                            
+                            $hometeam_name = get_post_meta( get_the_ID(), 'meta-text-home-team-name', true ) ;
+                            $awayteam_name = get_post_meta( get_the_ID(), 'meta-text-away-team-name', true ) ;
+                            $hometeam_result = get_post_meta( get_the_ID(), 'meta-text-home-team-result', true ) ;
+                            $awayteam_result = get_post_meta( get_the_ID(), 'meta-text-away-team-result', true ) ;
+                            $game_date = get_post_meta( get_the_ID(), 'pbd-event-date', true ) ;
+                            
+                           
+                            echo '<tr>';
+                            echo '<td>'.$hometeam_name.' VS '.$awayteam_name.'</td>';
+                            echo  '<td>'.$hometeam_result.' : '.$awayteam_result.'</td>';
+                             echo  '<td>'.$game_date.'</td>';
+                            echo '</tr>';
+                            
+                          endwhile;
+                          echo '</table>';
+                          wp_reset_query();
+                          ?>
+                    
                 </header>
             </div>
             <!-- Portfolio Section -->

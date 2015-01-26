@@ -58,7 +58,7 @@
         })
         $('.carousel-inner').find('.item:first').addClass('active');
         $(".carousel-indicators li:first").addClass("active");
-
+        
     });
 
 </script>

@@ -36,7 +36,18 @@
     <body <?php body_class(); ?> >
         <!--Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="">
-        <div class="container">
+        <div class="container top_">
+            <?php 
+            
+                if (is_user_logged_in()) { ?>
+            <style>
+                .top_{
+                    margin-top: 20px;
+                }
+            </style>
+              <?php 
+              } 
+            ?>
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
